@@ -21,6 +21,7 @@ int IsCollision(const int cactusX, const int dinoY);
 int GetKeyDown();
 void DrawGameOver(const int score);
 
+//색상
 enum {
 	BLACK,
 	DARK_BLUE,
@@ -120,6 +121,7 @@ int IsCollision(const int cactusX, const int dinoY) {
 	return false;
 }
 
+//선인장
 void DrawCactus(int cactusX) {
 	SetColor(GREEN);
 	GotoXY(cactusX, CACTUS_BOTTOM_Y);
@@ -134,6 +136,7 @@ void DrawCactus(int cactusX) {
 	printf("  $  ");
 }
 
+//공룡
 void DrawDino(int dinoY) {
 	SetColor(SKYBLUE);
 	GotoXY(0, dinoY);
@@ -157,6 +160,7 @@ void DrawDino(int dinoY) {
 	printf("$    \n");							// 1, 4
 	printf("    $$$$$$$$    \n");		// 4, 8, 4
 	printf("     $$$$$$     \n");		// 5, 6, 5
+	//다리 움직이는거 출력
 	if (legFlag) {
 		printf("     $    $$$   \n");		// 5, 1, 4, 3, 3
 		printf("     $$         ");			// 5, 2, 9
@@ -177,12 +181,14 @@ void CursorView(char show) {
 	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), & ConsoleCursor);
 }
 
+//콘솔창 이름 보이기
 void SetConsoleView() {
 	system("mode con:cols = 120  lines = 30");
 	system("title 창의실무프로젝트 구글 공룡 게임 [By. 교수님]");
 	CursorView(false);
 }
 
+//게임오버화면
 void DrawGameOver(const int score) {
 	system("cls");	SetColor(YELLOW);
 	int x = 22, y = 8;
