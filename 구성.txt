@@ -1,0 +1,4 @@
+게임팩
+dino
+tetris
+directon
